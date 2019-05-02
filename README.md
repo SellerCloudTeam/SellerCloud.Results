@@ -1,2 +1,2 @@
 # SellerCloud.Results
-SellerCloud's common Result data structures
+SellerCloud's common Result data structure
