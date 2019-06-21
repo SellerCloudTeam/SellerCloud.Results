@@ -1,17 +1,16 @@
 ﻿using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace SellerCloud.Results
 {
-    public class Result<T>
+    public class Result<T> : Result
     {
         public T Value { get; }
 
-        public bool HasValue => !EqualityComparer<T>.Default.Equals(Value, default(T));
+        public override bool HasValue => !EqualityComparer<T>.Default.Equals(Value, default(T));
 
-        public ResultType Type { get; set; }
+        public override ResultType Type { get; }
 
-        public bool IsSuccess
+        public override bool IsSuccessful
             => Type == ResultType.NoError
             || Type == ResultType.NoData;
 
@@ -19,11 +18,6 @@ namespace SellerCloud.Results
         {
             Value = value;
             Type = resultType;
-        }
-
-        public static Task<Result<T>> Fail<T>(T value, ResultType resultType)
-        {
-            return Task.FromResult(new Result<T>(value, resultType));
         }
     }
 }
