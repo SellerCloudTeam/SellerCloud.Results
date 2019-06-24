@@ -30,7 +30,8 @@ namespace SellerCloud.Results.Validation.Abstractions
         /// <typeparam name="TRule">The type of the rule.</typeparam>
         /// <param name="parameters">The parameters.</param>
         /// <param name="canBrake">if set to <c>true</c> [can brake].</param>
-        IValidator AddRule<TRule>(dynamic parameters, bool canBrake);
+        IValidator AddRule<TRule>(dynamic parameters, bool canBrake)
+            where TRule : IValidationRule;
 
         /// <summary>
         /// Validate the provided model by a set of properties.

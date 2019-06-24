@@ -46,8 +46,9 @@ namespace SellerCloud.Results.Validation
             AddRuleType(parameters, typeof(TRule), true);
 
         /// <see cref="IValidator"/> for more.
-        public IValidator AddRule<TRule>(dynamic parameters, bool canBrake) =>
-            AddRuleType(parameters, typeof(TRule), canBrake);
+        public IValidator AddRule<TRule>(dynamic parameters, bool canBrake)
+            where TRule : IValidationRule
+                => AddRuleType(parameters, typeof(TRule), canBrake);
 
         /// <see cref="IValidator"/> for more.
         public IValidator AddRuleType(object parameters, Type ruleType, bool canBreak)

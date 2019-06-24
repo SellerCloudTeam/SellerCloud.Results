@@ -41,16 +41,16 @@ namespace SellerCloud.Results.Tests.Sample
 
             builder
                 .RegisterType<IdentifierShouldBePositive>()
-                .As<IValidationRule>()
+                .AsSelf()
                 .SingleInstance();
 
-            builder.Register<Func<Type, object>>(c =>
-            {
-                var context = c.Resolve<IComponentContext>();
-                return typeToResolve => {
-                    return context.Resolve(typeToResolve);
-                };
-            });
+            //builder.Register<Func<Type, object>>(c =>
+            //{
+            //    var context = c.Resolve<IComponentContext>();
+            //    return typeToResolve => {
+            //        return context.Resolve(typeToResolve);
+            //    };
+            //});
 
             return builder.Build();
         }
