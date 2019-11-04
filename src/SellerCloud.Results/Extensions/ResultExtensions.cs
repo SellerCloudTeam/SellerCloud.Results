@@ -41,7 +41,7 @@ namespace SellerCloud.Results
             return new ApplicationException(message);
         }
 
-        public static async Task<Result> GetSuccessOrErrorMessage<T>(this Task<Result<T>> resultTask)
+        public static async Task<Result> GetSuccessOrErrorMessageAsync<T>(this Task<Result<T>> resultTask)
         {
             Result<T> result = await resultTask;
 
