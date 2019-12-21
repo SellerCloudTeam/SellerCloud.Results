@@ -3,14 +3,14 @@
     public class Result<T> : Result
     {
         internal Result(T data)
-            : base(isSuccessful: true)
         {
             this.Data = data;
         }
 
-        internal Result(string errorMessage, string errorSource = null)
+        internal Result(string errorMessage, string? errorSource = null)
             : base(errorMessage, errorSource)
         {
+            this.Data = default!;
         }
 
         public T Data { get; }

@@ -4,7 +4,7 @@ namespace SellerCloud.Results
 {
     public static class ResultFactory
     {
-        public static Result Success() => new Result(isSuccessful: true);
+        public static Result Success() => new Result();
         public static Result Error(string message) => new Result(errorMessage: message);
         public static Result Error(Exception exception) => new Result(errorMessage: exception.Message, errorSource: exception.StackTrace);
 
