@@ -13,6 +13,7 @@ namespace SellerCloud.Results
         }
 
         public static async Task<T> ResolveOrThrow<T>(this Task<Result<T>> resultTask)
+            where T : class
         {
             Result<T> result = await resultTask;
 
@@ -20,6 +21,7 @@ namespace SellerCloud.Results
         }
 
         public static T ResolveOrThrow<T>(this Result<T> result)
+            where T : class
         {
             result.ThrowIfUnsuccessful();
 

@@ -7,8 +7,15 @@ namespace SellerCloud.Results
     /// </summary>
     public static class ExceptionExtensions
     {
-        public static Result<T> AsResult<T>(this Exception exception) => ResultFactory.Error<T>(exception);
+        public static Result AsResult(this Exception exception)
+            => ResultFactory.Error(exception);
 
-        public static Result AsResult(this Exception exception) => ResultFactory.Error(exception);
+        public static Result<T> AsResult<T>(this Exception exception)
+            where T : class
+            => ResultFactory.Error<T>(exception);
+
+        public static ValueResult<T> AsValueResult<T>(this Exception exception)
+            where T : struct
+            => ValueResultFactory.Error<T>(exception);
     }
 }
