@@ -7,7 +7,7 @@ namespace SellerCloud.Results
     {
         public static string ToFullErrorString(this Result result)
         {
-            if (string.IsNullOrEmpty(result.Source)) return result.Message;
+            if (string.IsNullOrWhiteSpace(result.Source)) return result.Message;
 
             return $"{result.Message}\r\n\r\n{result.Source}";
         }
