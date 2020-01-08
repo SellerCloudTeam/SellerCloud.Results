@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.28729.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SellerCloud.Results", "SellerCloud.Results\SellerCloud.Results.csproj", "{F77224BD-C4B7-4050-AB4F-72CD60A9915B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{64D01BCB-FDA2-4E67-B568-29C340683702}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SellerCloud.Results.Tests", "..\test\SellerCloud.Results.Tests\SellerCloud.Results.Tests\SellerCloud.Results.Tests.csproj", "{E0949BD2-5180-490F-8684-3FBDDD15218E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +19,16 @@ Global
 		{F77224BD-C4B7-4050-AB4F-72CD60A9915B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F77224BD-C4B7-4050-AB4F-72CD60A9915B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F77224BD-C4B7-4050-AB4F-72CD60A9915B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0949BD2-5180-490F-8684-3FBDDD15218E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0949BD2-5180-490F-8684-3FBDDD15218E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0949BD2-5180-490F-8684-3FBDDD15218E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0949BD2-5180-490F-8684-3FBDDD15218E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E0949BD2-5180-490F-8684-3FBDDD15218E} = {64D01BCB-FDA2-4E67-B568-29C340683702}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {92FBD7AB-AA4A-4D02-BE40-785BF909E51D}
