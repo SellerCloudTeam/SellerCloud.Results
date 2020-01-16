@@ -30,7 +30,7 @@ namespace SellerCloud.Results.Tests.Extensions
         }
 
         [TestCase("testMessage", "testSource")]
-        public void ToFullErrorString_EmptyOrNullString_ReturnsSameMessage(string message, string source)
+        public void ToFullErrorString_EmptyOrNullString_ReturnsSameMessage(string message, string? source)
         {
             // Arrange
             var errorResult = ResultFactory.Error<string>(message, source);
@@ -43,7 +43,7 @@ namespace SellerCloud.Results.Tests.Extensions
         }
 
         [TestCase("testMessage", "testSource")]
-        public void ResolveOrThrow_Error_ShouldThrow(string message, string source)
+        public void ResolveOrThrow_Error_ShouldThrow(string message, string? source)
         {
             // Arrange
             var errorResult = ResultFactory.Error<string>(message, source);
