@@ -11,7 +11,7 @@ namespace SellerCloud.Results
         public static Result Error(string message)
             => new Result(message);
 
-        public static Result Error(string message, string source)
+        public static Result Error(string message, string? source)
             => new Result(message, source);
 
         public static Result Error(Exception exception)
@@ -26,7 +26,7 @@ namespace SellerCloud.Results
             where TData : class
             => new Result<TData>(message);
 
-        public static Result<TData> Error<TData>(string message, string source)
+        public static Result<TData> Error<TData>(string message, string? source)
             where TData : class
             => new Result<TData>(message, source);
 

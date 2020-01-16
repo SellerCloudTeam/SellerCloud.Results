@@ -13,7 +13,7 @@ namespace SellerCloud.Results
             where TData : struct
             => new ValueResult<TData>(message);
 
-        public static ValueResult<TData> Error<TData>(string message, string source)
+        public static ValueResult<TData> Error<TData>(string message, string? source)
             where TData : struct
             => new ValueResult<TData>(message, source);
 
