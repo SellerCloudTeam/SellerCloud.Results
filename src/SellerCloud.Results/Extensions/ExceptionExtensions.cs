@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SellerCloud.Results.Http;
+using System;
+using System.Net;
 
 namespace SellerCloud.Results
 {
@@ -17,5 +19,13 @@ namespace SellerCloud.Results
         public static ValueResult<T> AsValueResult<T>(this Exception exception)
             where T : struct
             => ValueResultFactory.Error<T>(exception);
+
+        public static HttpResult<T> AsHttpResult<T>(this Exception exception, HttpStatusCode statusCode)
+            where T : class
+            => HttpResultFactory.Error<T>(statusCode, exception);
+
+        public static HttpValueResult<T> AsHttpValueResult<T>(this Exception exception, HttpStatusCode statusCode)
+            where T : struct
+            => HttpValueResultFactory.Error<T>(statusCode, exception);
     }
 }
