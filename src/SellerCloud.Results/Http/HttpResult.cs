@@ -1,4 +1,6 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
+using System.Text;
 
 namespace SellerCloud.Results.Http
 {
@@ -20,5 +22,25 @@ namespace SellerCloud.Results.Http
         public HttpStatusCode StatusCode { get; }
 
         public byte[]? Body { get; }
+
+        public string? BodyAsString()
+        {
+            return this.BodyAsString(Encoding.Default);
+        }
+
+        public string? BodyAsString(Encoding encoding)
+        {
+            if (encoding is null)
+            {
+                throw new ArgumentNullException(nameof(encoding));
+            }
+
+            if (this.Body is null)
+            {
+                return default;
+            }
+
+            return encoding.GetString(this.Body);
+        }
     }
 }
