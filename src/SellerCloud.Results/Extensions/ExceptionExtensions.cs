@@ -20,6 +20,9 @@ namespace SellerCloud.Results
             where T : struct
             => ValueResultFactory.Error<T>(exception);
 
+        public static HttpResult AsHttpResult(this Exception exception, HttpStatusCode statusCode)
+            => HttpResultFactory.Error(statusCode, exception);
+
         public static HttpResult<T> AsHttpResult<T>(this Exception exception, HttpStatusCode statusCode)
             where T : class
             => HttpResultFactory.Error<T>(statusCode, exception);
