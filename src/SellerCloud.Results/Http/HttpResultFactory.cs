@@ -6,17 +6,17 @@ namespace SellerCloud.Results.Http
     public static class HttpResultFactory
     {
         // Abstract results
-        public static HttpResult Success(HttpStatusCode statusCode)
-            => new HttpResult(statusCode);
+        public static HttpResult Success(HttpStatusCode statusCode, byte[]? body = null)
+            => new HttpResult(statusCode, body);
 
-        public static HttpResult Error(HttpStatusCode statusCode, string message)
-            => new HttpResult(statusCode, message);
+        public static HttpResult Error(HttpStatusCode statusCode, string message, byte[]? body = null)
+            => new HttpResult(statusCode, message, source: null, body);
 
-        public static HttpResult Error(HttpStatusCode statusCode, string message, string? source)
-            => new HttpResult(statusCode, message, source);
+        public static HttpResult Error(HttpStatusCode statusCode, string message, string? source, byte[]? body = null)
+            => new HttpResult(statusCode, message, source, body);
 
-        public static HttpResult Error(HttpStatusCode statusCode, Exception exception)
-            => new HttpResult(statusCode, exception.Message, exception.StackTrace);
+        public static HttpResult Error(HttpStatusCode statusCode, Exception exception, byte[]? body = null)
+            => new HttpResult(statusCode, exception.Message, exception.StackTrace, body);
 
         // Results of reference type
         public static HttpResult<T> Success<T>(HttpStatusCode statusCode, T data)
