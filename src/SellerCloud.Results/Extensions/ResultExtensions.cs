@@ -44,6 +44,7 @@ namespace SellerCloud.Results
         }
 
         public static async Task<Result> GetSuccessOrErrorMessageAsync<T>(this Task<Result<T>> resultTask)
+            where T : class
         {
             Result<T> result = await resultTask;
 
@@ -51,6 +52,7 @@ namespace SellerCloud.Results
         }
 
         public static Result GetSuccessOrErrorMessage<T>(this Result<T> result)
+            where T : class
             => result.IsSuccessful
             ? ResultFactory.Success()
             : ResultFactory.Error(result.Message);

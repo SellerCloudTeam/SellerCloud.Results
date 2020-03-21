@@ -19,5 +19,19 @@ namespace SellerCloud.Results
 
             return result.Data;
         }
+
+        public static async Task<Result> GetSuccessOrErrorMessageAsync<T>(this Task<ValueResult<T>> resultTask)
+            where T : struct
+        {
+            ValueResult<T> result = await resultTask;
+
+            return result.GetSuccessOrErrorMessage();
+        }
+
+        public static Result GetSuccessOrErrorMessage<T>(this ValueResult<T> result)
+            where T : struct
+            => result.IsSuccessful
+            ? ResultFactory.Success()
+            : ResultFactory.Error(result.Message);
     }
 }
