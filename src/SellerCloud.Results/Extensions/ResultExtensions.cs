@@ -7,7 +7,7 @@ namespace SellerCloud.Results
     {
         public static string ToFullErrorString(this Result result)
         {
-            if (string.IsNullOrEmpty(result.Source)) return result.Message;
+            if (string.IsNullOrWhiteSpace(result.Source)) return result.Message;
 
             return $"{result.Message}\r\n\r\n{result.Source}";
         }
@@ -42,5 +42,17 @@ namespace SellerCloud.Results
 
             return new ApplicationException(message);
         }
+
+        public static async Task<Result> GetSuccessOrErrorMessageAsync<T>(this Task<Result<T>> resultTask)
+        {
+            Result<T> result = await resultTask;
+
+            return result.GetSuccessOrErrorMessage();
+        }
+
+        public static Result GetSuccessOrErrorMessage<T>(this Result<T> result)
+            => result.IsSuccessful
+            ? ResultFactory.Success()
+            : ResultFactory.Error(result.Message);
     }
 }
