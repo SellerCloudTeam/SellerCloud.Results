@@ -11,17 +11,19 @@
             this.Source = null;
         }
 
-        internal Result(string errorMessage, string? errorSource = null)
+        internal Result(string message, string? source = null)
         {
             this.IsSuccessful = false;
 
             // Error-related properties
-            this.Message = errorMessage;
-            this.Source = errorSource;
+            this.Message = message;
+            this.Source = source;
         }
 
         public bool IsSuccessful { get; }
+
         public string Message { get; }
+
         public string? Source { get; }
     }
 }

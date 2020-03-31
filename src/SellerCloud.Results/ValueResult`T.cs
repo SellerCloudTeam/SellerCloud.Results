@@ -1,14 +1,14 @@
 ﻿namespace SellerCloud.Results
 {
-    public class Result<T> : Result
-        where T : class
+    public class ValueResult<T> : Result
+        where T : struct
     {
-        internal Result(T data)
+        internal ValueResult(T data)
         {
             this.Data = data;
         }
 
-        internal Result(string message, string? source = null)
+        internal ValueResult(string message, string? source = null)
             : base(message, source)
         {
             this.Data = default!;
