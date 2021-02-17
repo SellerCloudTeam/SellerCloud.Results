@@ -21,4 +21,4 @@ jobs:
       with:
         dotnet-version: 2.2.108
     - name: Build
-      run: dotnet build ${{env.SolutionFile}} /clp:ErrorsOnly --configuration Release --no-restore
+      run: dotnet build './src/SellerCloud.Results.sln' /clp:ErrorsOnly --configuration Release --no-restore
