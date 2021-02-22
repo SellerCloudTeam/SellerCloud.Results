@@ -17,9 +17,9 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.0.103
-    - name: Restore dependencies
-      run: dotnet restore ./src/SellerCloud.Results /clp:ErrorsOnly
+    - name: Install dependencies
+      run: dotnet restore ./src /clp:ErrorsOnly
     - name: Restore packages
-      run: nuget restore ./src/SellerCloud.Results
+      run: nuget restore ./src
     - name: Build
-      run: dotnet build "SellerCloud.Results.csproj" --framework netcoreapp3.0 --no-restore ./src
+      run: dotnet build "./src/SellerCloud.Results/SellerCloud.Results.csproj" --framework netcoreapp3.0 --no-restore ./src
