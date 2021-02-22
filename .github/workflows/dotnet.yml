@@ -9,7 +9,7 @@ on:
 jobs:
   build:
 
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
@@ -18,8 +18,8 @@ jobs:
       with:
         dotnet-version: 3.0.103
     - name: Restore dependencies
-      run: dotnet restore ./src /clp:ErrorsOnly
+      run: dotnet restore ./src/SellerCloud.Results /clp:ErrorsOnly
     - name: Restore packages
-      run: nuget restore ./src
+      run: nuget restore ./src/SellerCloud.Results
     - name: Build
-      run: dotnet build --framework netcoreapp3.0 --no-restore ./src
+      run: dotnet build "SellerCloud.Results.csproj" --framework netcoreapp3.0 --no-restore ./src
