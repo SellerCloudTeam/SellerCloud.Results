@@ -4,11 +4,11 @@ on:
   push:
     branches: [ develop ]
     paths:
-      - 'src/**'
+    - 'src/SellerCloud.Results/**'
   pull_request:
     branches: [ develop ]
     paths:
-      - 'src/**'
+    - 'src/SellerCloud.Results/**'
 
 jobs:
   build:
