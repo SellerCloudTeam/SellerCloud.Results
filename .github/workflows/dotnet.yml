@@ -3,10 +3,12 @@ name: .NET Core
 on:
   push:
     branches: [ develop ]
+    paths:
+      - 'src/**'
   pull_request:
     branches: [ develop ]
-  paths:
-    - 'src/**'
+    paths:
+      - 'src/**'
 
 jobs:
   build:
