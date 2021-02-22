@@ -18,6 +18,8 @@ jobs:
       with:
         dotnet-version: 3.0.103
     - name: Restore dependencies
-      run: dotnet restore ./src
+      run: dotnet restore ./src /clp:ErrorsOnly
+    - name: Restore packages
+      run: nuget restore ./src
     - name: Build
       run: dotnet build --framework netcoreapp3.0 --no-restore ./src
