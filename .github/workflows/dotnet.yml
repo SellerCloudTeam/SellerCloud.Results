@@ -20,4 +20,4 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore ./src
     - name: Build
-      run: dotnet build --no-restore ./src
+      run: dotnet build --framework netcoreapp3.0 --no-restore ./src
