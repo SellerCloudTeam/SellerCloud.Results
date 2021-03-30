@@ -22,4 +22,4 @@ jobs:
     - name: Restore packages
       run: nuget restore ./src
     - name: Build
-      run: dotnet build "./src/SellerCloud.Results/SellerCloud.Results.csproj" --framework netcoreapp3.0 --no-restore
+      run: dotnet build "./src/SellerCloud.Results/SellerCloud.Results.csproj" --no-restore
